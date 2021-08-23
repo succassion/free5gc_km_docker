@@ -1,4 +1,4 @@
-It is Test code.
+It is Test Code.
 
 ## Reference 
 **Reference GitHub : https://github.com/aligungr/UERANSIM**
@@ -19,8 +19,8 @@ $ make
 ```
 
 ## Changed Configuration
+- config/free5gc-gnb.yaml
 ```
-< config/free5gc-gnb.yaml >
  linkIp: 127.0.0.1    # gNB's local IP address for Radio Link Simulation (Usually same with local IP)
  ngapIp: 10.100.0.107 # UERANSIM IP  # gNB's local IP address for N2 Interface (Usually same with local IP)
  gtpIp: 10.100.0.107  # UERANSIM IP  # gNB's local IP address for N3 Interface (Usually same with local IP)
