@@ -1458,7 +1458,7 @@ static const struct net_device_ops gtp5g_netdev_ops = {
     .ndo_init           = gtp5g_dev_init,
     .ndo_uninit         = gtp5g_dev_uninit,
     .ndo_start_xmit     = gtp5g_dev_xmit,
-    .ndo_get_stats64    = ip_tunnel_get_stats64,
+    .ndo_get_stats64    = dev_get_tstats64,
 };
 
 static void pdr_context_free(struct rcu_head *head)
