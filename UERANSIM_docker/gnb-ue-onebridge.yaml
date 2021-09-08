@@ -1,0 +1,37 @@
+version: '3'
+services: 
+  gnb:
+    image: ueransim:3.2.2
+    container_name: gnb
+    command: #/usr/local/build/nr-gnb -c config/free5gc-gnb.yaml
+      - gnb
+    volumes:
+      - ./config/free5gc-gnb.yaml:/config/free5gc-gnb.yaml
+    cap_add:
+      - ALL
+    networks:
+      ueransim:
+        aliases:
+          - gnb.free5gc.org
+
+  ue:
+    image: ueransim:3.2.2
+    container_name: ue
+    command: ['ue', '-n', '3'] #/usr/local/build/nr-ue -c config/free5gc-ue.yaml
+    volumes:
+      - ./config/free5gc-ue.yaml:/config/free5gc-ue.yaml
+    cap_add:
+      - ALL
+    privileged: true
+    depends_on:
+      - gnb
+    networks:
+      ueransim:
+        aliases:
+          - ue.free5gc.org
+
+networks:
+  ueransim:
+    external: 
+      name: free5gc-compose_privnet
+    
