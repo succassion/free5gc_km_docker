@@ -26,7 +26,7 @@ gnb)  echo "Launching gnb: nr-gnb -c free5gc-gnb.yaml"
      if [[ ! -z "${AMF_HOSTNAME}" ]] ; then
          export AMF_ADDR="$(ip route | awk '{print $3; exit}')"
      fi
-     echo "gnb) Find GNB_ADDR : $GNB_ADDR, AMF_ADDR : $AMF_ADDR"
+     echo "gnb) Find GNB_ADDR : $GNB_ADDR, AMF_ADDR Gateway : $AMF_ADDR"
      envsubst < /config/free5gc-gnb.yaml > free5gc-gnb.yaml
      /usr/local/build/nr-gnb -c free5gc-gnb.yaml
      ;;
